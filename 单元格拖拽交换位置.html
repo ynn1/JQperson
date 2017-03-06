@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul,li{
+				list-style:none;
+			}
+			ul{
+				margin:30px;
+				width:600px;
+				height:600px;
+				border:solid 1px #ccc;
+				position:relative;
+			}
+			li{
+				width:190px;
+				height:190px;
+				background:#ccc;
+				border-radius:20px;
+				font-size:50px;
+				line-height:190px;
+				text-align:center;
+				position:absolute;
+			}
+			#li01{
+				background:#f00;
+				left:5px;
+				top:5px;
+			}
+			#li02{
+				background:#ff0;
+				left:200px;
+				top:5px;
+			}
+			#li03{
+				background:#0f0;
+				left:400px;
+				top:5px;
+			}
+			#li04{
+				background:#f0f;
+				top:200px;
+				left:5px;
+			}
+			#li05{
+				background:#0ff;
+				top:200px;
+				left:200px;
+			}
+			#li06{
+				background:#00f;
+				top:200px;
+				left:400px;
+			}
+			#li07{
+				background:#0f0;
+				top:400px;
+				left:5px;
+			}
+			#li08{
+				background:#f0f;
+				top:400px;
+				left:200px;
+			}
+			#li09{
+				background:#ff0;
+				top:400px;
+				left:400px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li id="li01">A</li>
+			<li id="li02">B</li>
+			<li id="li03">C</li>
+			<li id="li04">D</li>
+			<li id="li05">E</li>
+			<li id="li06">F</li>
+			<li id="li07">G</li>
+			<li id="li08">H</li>
+			<li id="li09">I</li>
+		</ul>
+	</body>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+			$("ul li").mousedown(function(){
+				$(this).addClass("move");
+			})
+			
+			$("ul li").mousemove(function(event){
+				let mouseLeft=event.pageX;
+				let _left=mouseLeft+$(this).outerWidth();
+				let mouseTop=event.pageY;
+				let _top=mouseTop+$(this).outerHeight();
+				if($(this).hasClass("move")){
+					$(this).animate({"left":_left+"px"});
+					console.log(_left);
+				}	
+			})
+		})
+	</script>
+</html>
